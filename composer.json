@@ -1,0 +1,12 @@
+{
+    "name": "levitarmouse/core",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Gabriel Prieto",
+            "email": "levitarmouse@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
