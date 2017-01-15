@@ -1,1 +1,1 @@
-# KISS-CORE
+# KISS-CORE 1.0.0
