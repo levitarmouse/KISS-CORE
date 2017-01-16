@@ -36,14 +36,16 @@ class ConfigIni
      *
      * @param type $iniFileName Config file name with ini extension
      */
-    public function __construct($iniFileName = null)
+    public function __construct($iniFilePath = '', $analize = false)
     {
-        $this->configFolder = CONFIG_PATH;
+        if (!$iniFilePath) {
+            return $this;
+        }
 
-        $this->iniFullFsLocation = $this->configFolder . $iniFileName;
+        $this->iniFullFsLocation = $iniFilePath;
 
         if ($this->_retrieveConfiguration()) {
-            $this->_init();
+            $this->_init($analize);
         }
     }
 
@@ -67,16 +69,55 @@ class ConfigIni
      *
      * @return none
      */
-    private function _init()
+    private function _init($analize = false)
     {
         foreach ($this->rawConfiguration as $section => $config) {
+            
+            if ($analize) {
+                $oConfig = new SmartObject($config);
+            } else {
             $oConfig = new Object();
+            }
+            
             foreach ($config as $attrib => $value) {
                 $oConfig->$attrib = $value;
             }
             $this->configuration[$section] = $oConfig;
         }
     }
+
+//    public function scanForObjects($sectionName = '') {
+//        
+//        $aConfigurations = $this->configuration;
+//        
+//        if (!$aConfigurations) {
+//            return false;
+//        }
+//        
+//        $prospect = null;
+//        foreach ($aConfigurations as $section => $param) {
+//
+//            if ($sectionName) {
+//                if (strtoupper($sectionName) == strtoupper($section)) {
+//                    $prospect = $this->get($section, true);                    
+//                }
+//            } else {
+//                $prospect = $this->get($section, true);                
+//            }
+//        }
+//        
+//        $section = array();
+//        if ($prospect) {
+//            foreach ($prospect as $key => $velue) {
+//                if (is_string($velue)) {
+//                    $object = json_decode($prospect);
+//                    if (is_object($object)) {
+////                        $
+//                    }
+//                }
+//            }
+//        }
+//    }
 
     /**
      * GetConstant
@@ -107,6 +148,7 @@ class ConfigIni
             $aSteps = explode('.', $configName);
 
             $seccion = (isset($aSteps[0])) ? $aSteps[0] : null;
+//            $param   = (isset($aSteps[1])) ? strtoupper($aSteps[1]) : null;
             $param   = (isset($aSteps[1])) ? $aSteps[1] : null;
 
             $aConfigurations = $this->configuration;
