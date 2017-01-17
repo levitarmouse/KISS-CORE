@@ -13,9 +13,9 @@ class SmartObject
     {
         $this->_source       = $source;
 
-//        if (!empty($source)) {
-//            $this->analize();
-//        }
+        if (!empty($source)) {
+            $this->analize($source);
+        }
     }
 
     public function getObject($source = null) {
@@ -29,13 +29,12 @@ class SmartObject
         return $obj;
     }
 
-    protected function analize() {
-
-        $src = $this->_source;
+    public function analize($src = null) {
 
         $obj = new Object();
 
         if (is_string($src)) {
+            
             if ($oFromJson = json_decode($src)) {
                 foreach ($oFromJson as $key => $value) {
                     $obj->$key = $value;
@@ -43,15 +42,18 @@ class SmartObject
             } else {
                 $obj->string = $src;
             }
-        }
-
-        if (is_object($src)) {
-            foreach ($oFromJson as $key => $value) {
-                $obj->$key = $value;
+        } else {
+            if (is_object($src) || is_array($src)) {
+                foreach ($src as $key => $value) {
+                    $obj->$key = $value;
+                }
+            } else {
+                $type = gettype($src);
+                $obj->$type = $src;
             }
         }
 
-        return $obj;
+        return $obj->getAttribs(true);
     }
 
 }

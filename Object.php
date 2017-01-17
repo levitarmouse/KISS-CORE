@@ -79,7 +79,6 @@ class Object
                 $obj->$sAttrib = $sValue;
             }
         }
-        $obj->objectStatus = $this->objectStatus;
         return $obj;
     }
 
