@@ -13,8 +13,12 @@ class SmartObject
     {
         $this->_source       = $source;
 
-        if (!empty($source)) {
-            $this->analize($source);
+        if (is_a($source, 'levitarmouse\core\Object')) {
+            error_log('');
+        } else {
+            if (!empty($source)) {
+                $this->analize($source);
+            }            
         }
     }
 
@@ -53,7 +57,7 @@ class SmartObject
             }
         }
 
-        return $obj->getAttribs(true);
+        return $obj;
     }
 
 }
