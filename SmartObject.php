@@ -17,7 +17,7 @@ class SmartObject
             error_log('');
         } else {
             if (!empty($source)) {
-                $this->analize($source);
+                return $this->analize($source);
             }            
         }
     }
@@ -47,7 +47,11 @@ class SmartObject
                 $obj->string = $src;
             }
         } else {
-            if (is_object($src) || is_array($src)) {
+            if (is_object($src)) {
+                return $src;
+            }
+                
+            if (is_array($src)) {
                 foreach ($src as $key => $value) {
                     $obj->$key = $value;
                 }
