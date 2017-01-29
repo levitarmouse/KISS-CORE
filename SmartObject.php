@@ -53,7 +53,13 @@ class SmartObject
                 
             if (is_array($src)) {
                 foreach ($src as $key => $value) {
-                    $obj->$key = $value;
+                    
+                    $objProspect = json_decode($value);
+                    if (is_object($objProspect)) {
+                        $obj->$key = $objProspect;
+                    } else {
+                        $obj->$key = $value;                        
+                    }
                 }
             } else {
                 $type = gettype($src);
