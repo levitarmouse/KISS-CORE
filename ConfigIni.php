@@ -59,7 +59,7 @@ class ConfigIni
         $result = @$this->rawConfiguration = parse_ini_file($this->iniFullFsLocation, true);
 
         if (!$result) {
-            throw new \Exception(\levitarmouse\rest\Response::INVALID_CONFIGURATION);
+            throw new \Exception(Response::INVALID_CONFIGURATION);
         }
         return ($result);
     }
