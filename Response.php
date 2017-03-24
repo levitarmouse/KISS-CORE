@@ -86,10 +86,8 @@ class Response
             self::NICK_NAME_OR_PASSTOKEN_EMPTY => array('id' => 110, 'description' => 'Usuario o Clave invalidos'),
             self::ACCESS_DENIED                => array('id' => 114, 'description' => 'El acceso está restringido para sus credenciales de acceso'),
             self::ACCESS_ORG_DENIED            => array('id' => 115, 'description' => 'El acceso está restringido por Inhabilitación en jerarquía'),
-            
             self::DB_ACCESS_DENIED            => array('id' => 118, 'description' => 'El acceso a la DB no está habilitado para las credenciales indicadas'),
             self::DB_ACCESS_FAILED            => array('id' => 119, 'description' => 'La conexión hacia la DB no pudo establecerse'),
-            
             self::ADMIN_ACCESS_INVALID         => array('id' => 116, 'description' => 'Autenticación con provilegios inválida'),
             self::INVALID_LONG_PARAMS          => array('id' => 117, 'description' => 'Los parámetros exceden la longitud permitida'),
 
