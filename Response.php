@@ -38,6 +38,8 @@ class Response
     const USER_DOES_NOT_EXIST = 'USER_DOES_NOT_EXIST';
     const ACCESS_DENIED = 'ACCESS_DENIED';
     const ACCESS_ORG_DENIED = 'ACCESS_ORG_DENIED';
+    const DB_DRIVER_NOT_IMPLEMENTED = 'DB_DRIVER_NOT_IMPLEMENTED';
+    const DB_INVALID_DRIVER = 'DB_INVALID_DRIVER';
     const DB_ACCESS_DENIED = 'DB_ACCESS_DENIED';
     const DB_ACCESS_FAILED = 'DB_ACCESS_FAILED';
     const PASSWORD_FORMAT_ERROR = 'PASSWORD_FORMAT_ERROR';
@@ -62,6 +64,8 @@ class Response
         $this->errors = array();
 
         $this->_errors = array(
+            self::DB_DRIVER_NOT_IMPLEMENTED    => array('id' => null, 'description' => 'DB Engine not implemented yet'),
+            self::DB_INVALID_DRIVER            => array('id' => null, 'description' => 'Invalid DB Engine '),
             self::INTERNAL_ERROR               => array('id' => -1, 'description' => 'Se produjo un error desconocido'),
             self::DEPLOYMENT_EXCEPTION         => array('id' => -1, 'description' => 'There is no method in the registered controller that receive the HTTP method used'),
             self::NO_ERRORS                    => array('id' => 0, 'description' => 'SUCCESS'),
@@ -86,8 +90,8 @@ class Response
             self::NICK_NAME_OR_PASSTOKEN_EMPTY => array('id' => 110, 'description' => 'Usuario o Clave invalidos'),
             self::ACCESS_DENIED                => array('id' => 114, 'description' => 'El acceso está restringido para sus credenciales de acceso'),
             self::ACCESS_ORG_DENIED            => array('id' => 115, 'description' => 'El acceso está restringido por Inhabilitación en jerarquía'),
-            self::DB_ACCESS_DENIED            => array('id' => 118, 'description' => 'El acceso a la DB no está habilitado para las credenciales indicadas'),
-            self::DB_ACCESS_FAILED            => array('id' => 119, 'description' => 'La conexión hacia la DB no pudo establecerse'),
+            self::DB_ACCESS_DENIED             => array('id' => 118, 'description' => 'El acceso a la DB no está habilitado para las credenciales indicadas'),
+            self::DB_ACCESS_FAILED             => array('id' => 119, 'description' => 'La conexión hacia la DB no pudo establecerse'),
             self::ADMIN_ACCESS_INVALID         => array('id' => 116, 'description' => 'Autenticación con provilegios inválida'),
             self::INVALID_LONG_PARAMS          => array('id' => 117, 'description' => 'Los parámetros exceden la longitud permitida'),
 
