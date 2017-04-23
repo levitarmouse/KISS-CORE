@@ -1,9 +1,11 @@
 {
     "name": "levitarmouse/core",
     "description": "La simple base de algunos componentes",
+    "license": "proprietary",
     "type": "library",
+    "minimum-stability": "dev",
     "require":{
-        "php" : "^5.5 || ^7.0"
+        "php" : ">=5.3.3"
     },
     "authors": [
         {
