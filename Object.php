@@ -7,39 +7,37 @@ use stdClass;
 
 class Object
 {
-    private $_aData;
+    protected $aData;
 
     public function __construct()
     {
-        $this->_aData = array();
-    }
-
-    public function getAttribs($bAsObject = false, $bAsXml = false)
-    {
-        $mReturn = $this->_aData;
-        if ($bAsObject) {
-            $mReturn = $this->_arrayToObject($mReturn);
-        } else if ($bAsXml) {
-            $mReturn = $this->_arrayToXML($mReturn);
-        }
-        return $mReturn;
+        $this->aData = array();
     }
 
     public function __get($name)
     {
-        $return = ( isset($this->_aData[$name]) ) ? $this->_aData[$name] : null;
+        $return = ( isset($this->aData[$name]) ) ? $this->aData[$name] : null;
         return $return;
     }
 
     public function __set($name, $value)
     {
-        $this->_aData[$name] = $value;
+        $this->aData[$name] = $value;
     }
 
     public function __isset($name)
     {
-        $return = ( array_key_exists($name, $this->_aData) ) ? true : false;
-        return $return;
+        $exist = ( array_key_exists($name, $this->aData) ) ? true : false;
+
+        $isNull = false;
+        if ($exist) {
+            $value  = $this->$name;
+            $isNull = ($value === null);
+        }
+        
+        $bIsSet = ($exist && !$isNull);
+
+        return $bIsSet;
     }
 
     public function __call($name, $arguments)
@@ -61,6 +59,23 @@ class Object
      */
     public function __unset($name)
     {
+        //TODO
+    }
+
+    /**
+     * getAttribs Devuelve todos los atributos ingresados al objeto
+     * 
+     */
+    public function getAttribs($bAsObject = false, $bAsXml = false)
+    {
+        $mReturn = $this->aData;
+        if ($bAsObject) {
+            $mReturn = $this->_arrayToObject($mReturn);
+        }
+        else if ($bAsXml) {
+            $mReturn = $this->_arrayToXML($mReturn);
+        }
+        return $mReturn;
     }
 
     /**
@@ -70,7 +85,7 @@ class Object
      *
      * @return \stdClass
      */
-    private function _arrayToObject($aArray = null)
+    protected function _arrayToObject($aArray = null)
     {
         $obj = new stdClass();
         ksort($aArray, SORT_STRING);
@@ -89,7 +104,7 @@ class Object
      *
      * @return type
      */
-    private function _arrayToXML($aArray = null)
+    protected function _arrayToXML($aArray = null)
     {
         ksort($aArray, SORT_STRING);
         $xml = '';
