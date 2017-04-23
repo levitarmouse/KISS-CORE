@@ -42,6 +42,11 @@ trait LmIterator  {
     {
         return $this->aCollection;
     }
+
+    protected function clearCollection() {
+        $this->aCollection = array();
+        $this->collectionIndex = 0;
+    }
     
     public function getNext()
     {
