@@ -15,7 +15,7 @@ trait LmIterator  {
 
         array_push(self::$aCollection, $mixed);
         
-        self::$collectionSize = count(self::$aCollection);
+        self::$collectionSize += 1;
     }
     
     // TODO
@@ -36,6 +36,11 @@ trait LmIterator  {
     public function getCollectionSize()
     {
         return self::$collectionSize;
+    }
+    
+    public function getCollection()
+    {
+        return $this->aCollection;
     }
     
     public function getNext()
