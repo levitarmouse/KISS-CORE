@@ -54,11 +54,16 @@ class SmartObject
             if (is_array($src)) {
                 foreach ($src as $key => $value) {
                     
-                    $objProspect = json_decode($value);
-                    if (is_object($objProspect)) {
-                        $obj->$key = $objProspect;
+                    if (is_string($value )) {
+                        $objProspect = json_decode($value);
+                        if (is_object($objProspect) || is_array($objProspect)) {
+                            $obj->$key = $this->analize($objProspect);
+                        } else {
+                            $obj->$key = $value;
+                        }                        
                     } else {
-                        $obj->$key = $value;                        
+                        error_log(json_encode($value));
+                        $obj->{$value->By} = $value->Direction;
                     }
                 }
             } else {

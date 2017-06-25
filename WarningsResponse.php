@@ -16,6 +16,10 @@ class WarningsResponse {
 //        self::$has = false;
     }
     
+    /**
+     * 
+     * @return Warnings
+     */
     public static function getInstance() {
         if (self::$instance ) {
             return self::$instance;
