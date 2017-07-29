@@ -34,7 +34,7 @@ class Object
             $value  = $this->$name;
             $isNull = ($value === null);
         }
-        
+
         $bIsSet = ($exist && !$isNull);
 
         return $bIsSet;
@@ -42,12 +42,12 @@ class Object
 
     public function __call($name, $arguments)
     {
-        throw new Exception('ERROR_METHOD_DOES_NOT_EXIST ['.$name.']');
+        return 'ERROR_METHOD_DOES_NOT_EXIST';
     }
 
     public static function __callStatic($name, $arguments)
     {
-        throw new Exception('ERROR_STATIC_METHOD_DOES_NOT_EXIST ['.$name.']');
+        return 'ERROR_STATIC_METHOD_DOES_NOT_EXIST';
     }
 
     /**
@@ -59,12 +59,14 @@ class Object
      */
     public function __unset($name)
     {
-        //TODO
+        if (isset($this->$name)) {
+            unset($this->aData[$name]);
+        }
     }
 
     /**
      * getAttribs Devuelve todos los atributos ingresados al objeto
-     * 
+     *
      */
     public function getAttribs($bAsObject = false, $bAsXml = false)
     {

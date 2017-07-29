@@ -56,10 +56,10 @@ class ConfigIni
      */
     private function _retrieveConfiguration()
     {
-        $result = @$this->rawConfiguration = parse_ini_file($this->iniFullFsLocation, true);
+        $result = $this->rawConfiguration = parse_ini_file($this->iniFullFsLocation, true);
 
         if (!$result) {
-            throw new \Exception(Response::INVALID_CONFIGURATION);
+            throw new \Exception(Codes::INVALID_CONFIGURATION);
         }
         return ($result);
     }
@@ -72,52 +72,19 @@ class ConfigIni
     private function _init($analize = false)
     {
         foreach ($this->rawConfiguration as $section => $config) {
-            
+
             if ($analize) {
                 $oConfig = new SmartObject($config);
             } else {
             $oConfig = new Object();
             }
-            
+
             foreach ($config as $attrib => $value) {
                 $oConfig->$attrib = $value;
             }
             $this->configuration[$section] = $oConfig;
         }
     }
-
-//    public function scanForObjects($sectionName = '') {
-//        
-//        $aConfigurations = $this->configuration;
-//        
-//        if (!$aConfigurations) {
-//            return false;
-//        }
-//        
-//        $prospect = null;
-//        foreach ($aConfigurations as $section => $param) {
-//
-//            if ($sectionName) {
-//                if (strtoupper($sectionName) == strtoupper($section)) {
-//                    $prospect = $this->get($section, true);                    
-//                }
-//            } else {
-//                $prospect = $this->get($section, true);                
-//            }
-//        }
-//        
-//        $section = array();
-//        if ($prospect) {
-//            foreach ($prospect as $key => $velue) {
-//                if (is_string($velue)) {
-//                    $object = json_decode($prospect);
-//                    if (is_object($object)) {
-////                        $
-//                    }
-//                }
-//            }
-//        }
-//    }
 
     /**
      * GetConstant
@@ -148,7 +115,6 @@ class ConfigIni
             $aSteps = explode('.', $configName);
 
             $seccion = (isset($aSteps[0])) ? $aSteps[0] : null;
-//            $param   = (isset($aSteps[1])) ? strtoupper($aSteps[1]) : null;
             $param   = (isset($aSteps[1])) ? $aSteps[1] : null;
 
             $aConfigurations = $this->configuration;

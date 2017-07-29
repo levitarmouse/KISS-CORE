@@ -9,7 +9,7 @@
  */
 namespace levitarmouse\core;
 
-class Response
+class Codes
 {
     const ALREADY_EXIST = 'ALREADY_EXIST';
     const DOESNT_EXIST = 'DOESNT_EXIST';
@@ -27,6 +27,8 @@ class Response
     const INVALID_LIST_PARAMS = 'INVALID_LIST_PARAMS';
     const INVALID_SIZE = 'INVALID_SIZE';
     const LOGIN_IS_REQUIRED = 'LOGIN_IS_REQUIRED';
+    const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+    const MULTI_LOGIN_SUCCESS = 'MULTI_LOGIN_SUCCESS';
     const MAIL_ALREADY_IN_USE = 'MAIL_ALREADY_IN_USE';
     const NICK_NAME_OR_PASSTOKEN_EMPTY = 'NICK_NAME_OR_PASSTOKEN_EMPTY';
     const NOTHING_TO_DO = 'NOTHING_TO_DO';
@@ -48,12 +50,13 @@ class Response
     const VALID_TOKEN_IS_REQUIRED = 'VALID_TOKEN_IS_REQUIRED';
     const ADMIN_UPDATE_WARNING = 'ADMIN_UPDATE_WARNING';
     const ADMIN_ACCESS_INVALID = 'ADMIN_ACCESS_INVALID';
+    const CHECKING_IN = 'CHECKING_IN';
 
     private $_errors;
     public $errorId;
     public $errorCode;
     public $errorDescription;
-    
+
     public $responseType;
 
     protected function init()
@@ -69,10 +72,13 @@ class Response
             self::INTERNAL_ERROR               => array('id' => -1, 'description' => 'Se produjo un error desconocido'),
             self::DEPLOYMENT_EXCEPTION         => array('id' => -1, 'description' => 'There is no method in the registered controller that receive the HTTP method used'),
             self::NO_ERRORS                    => array('id' => 0, 'description' => 'SUCCESS'),
+            self::CHECKING_IN                  => array('id' => 0, 'description' => 'CHECKING_IN'),
             self::NOTHING_TO_DO                => array('id' => 0, 'description' => 'NOTHING_TO_DO'),
             self::TOKEN_IS_REQUIRED            => array('id' => 1, 'description' => 'The token is required'),
             self::VALID_TOKEN_IS_REQUIRED      => array('id' => 2, 'description' => 'The token is invalid'),
             self::LOGIN_IS_REQUIRED            => array('id' => 3, 'description' => 'Login is required'),
+            self::LOGIN_SUCCESS                => array('id' => 200, 'description' => 'Bienvenido!'),
+            self::MULTI_LOGIN_SUCCESS          => array('id' => 200, 'description' => 'Bienvenido!'),
             self::UNAUTHORIZED_ACCESS          => array('id' => 4, 'description' => 'Autenticación fallida'),
             self::INVALID_COMPONENT            => array('id' => 5, 'description' => 'Invalid Component'),
             self::INVALID_CONFIGURATION        => array('id' => 6, 'description' => 'Configuration is not available'),
@@ -98,7 +104,7 @@ class Response
             self::PARAMETERS_TOO_LONG => array('id' => 108, 'description' => 'Valores demasiado extensos'),
             self::INVALID_PARAMS => array('id' => 109, 'description' => 'Valores invalidos o faltantes'),
             self::INVALID_NUMBER => array('id' => 111, 'description' => 'Se esperaba un valor numerico'),
-            self::INVALID_LIST_PARAMS => array('id' => 112, 'description' => 'Parámetros invalidos o faltantes'),
+            self::INVALID_LIST_PARAMS => array('id' => 113, 'description' => 'Parámetros invalidos o faltantes'),
             self::INVALID_SIZE => array('id' => 112, 'description' => 'El valor de campo excede la longitud permitida'),
             self::INVALID_NUMBER => array('id' => 111, 'description' => 'Se esperaba un valor numerico'),
             self::INACTIVE_ERROR => array('id' => 1000, 'description' => 'Unknown activity'),
@@ -119,7 +125,5 @@ class Response
             $this->errorId          = $this->_errors['INTERNAL_ERROR']['id'];
             $this->errorDescription = $this->_errors['INTERNAL_ERROR']['description']. ' '.$detail;
         }
-
     }
-
 }
