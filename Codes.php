@@ -82,7 +82,7 @@ class Codes
             self::UNAUTHORIZED_ACCESS          => array('id' => 4, 'description' => 'Autenticación fallida'),
             self::INVALID_COMPONENT            => array('id' => 5, 'description' => 'Invalid Component'),
             self::INVALID_CONFIGURATION        => array('id' => 6, 'description' => 'Configuration is not available'),
-            self::USER_DOES_NOT_EXIST          => array('id' => 7, 'description' => 'User does not exist'),
+            self::USER_DOES_NOT_EXIST          => array('id' => 401, 'description' => 'User does not exist'),
             self::USER_ALREADY_EXIST           => array('id' => 8, 'description' => 'User already exist'),
             self::MAIL_ALREADY_IN_USE          => array('id' => 9, 'description' => 'EMail ya utilizado por otro usuario'),
             self::PASSWORD_FORMAT_ERROR        => array('id' => 10, 'description' => 'La Constraseña no tiene un formato válido'),

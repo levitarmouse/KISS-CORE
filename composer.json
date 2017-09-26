@@ -1,16 +1,30 @@
 {
-    "name": "levitarmouse/core",
-    "description": "La simple base de algunos componentes",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/levitarmouse/KISS-CORE"
+        }
+    ],
+    "name": "levitarmouse/common_tools",
+    "description": "Group of reusable classes. Uses PHPMAILER, development of Andy Prevost and Marcus Bointon. Thanks to both.",
     "license": "proprietary",
     "type": "library",
     "minimum-stability": "dev",
-    "require":{
-        "php" : ">=5.3.3"
+    "require": {
+        "php" : ">=5.3.3",
+        "levitarmouse/core": "dev-dev"
     },
     "authors": [
         {
             "name": "Gabriel Prieto",
             "email": "levitarmouse@gmail.com"
         }
-    ]
+    ],
+    "scripts": {
+        "post-update-cmd": [],
+        "post-package-install": [],
+        "post-install-cmd": [],
+        "post-autoload-dump": [],
+        "post-create-project-cmd": []
+    }
 }
