@@ -9,9 +9,19 @@ class Object
 {
     protected $aData;
 
-    public function __construct()
+    public function __construct($source = null)
     {
         $this->aData = array();
+
+        if (is_array($source) ) {
+            $this->populate($source);
+        }
+    }
+
+    protected function populate(array $source) {
+        foreach ($source as $key => $value) {
+            $this->$key = $value;
+        }
     }
 
     public function __get($name)
