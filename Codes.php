@@ -12,6 +12,7 @@ namespace levitarmouse\core;
 class Codes
 {
     const ALREADY_EXIST = 'ALREADY_EXIST';
+    const LET_GO = 'LET_GO';
     const DOESNT_EXIST = 'DOESNT_EXIST';
     const COMPONENT_ALREADY_EXIST = 'COMPONENT_ALREADY_EXIST';
     const EXPIRED_LG_SESSION = 'EXPIRED_LG_SESSION';
@@ -71,6 +72,7 @@ class Codes
             self::DB_INVALID_DRIVER            => array('id' => null, 'description' => 'Invalid DB Engine '),
             self::INTERNAL_ERROR               => array('id' => -1, 'description' => 'Se produjo un error desconocido'),
             self::DEPLOYMENT_EXCEPTION         => array('id' => -1, 'description' => 'There is no method in the registered controller that receive the HTTP method used'),
+            self::LET_GO                       => array('id' => 0, 'description' => 'ALL_RIGHT'),
             self::NO_ERRORS                    => array('id' => 0, 'description' => 'SUCCESS'),
             self::CHECKING_IN                  => array('id' => 0, 'description' => 'CHECKING_IN'),
             self::NOTHING_TO_DO                => array('id' => 0, 'description' => 'NOTHING_TO_DO'),

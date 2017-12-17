@@ -3,51 +3,51 @@
 namespace levitarmouse\core;
 
 trait LmIterator  {
-    
+
     protected static $aCollection = array();
     protected static $collectionSize = 0;
     protected static $ready = false;
-    
+
     protected static $collectionIndex = 0;
     protected static $collectionEnd = false;
-    
+
     public function add($mixed) {
 
         array_push(self::$aCollection, $mixed);
-        
+
         self::$collectionSize += 1;
     }
-    
+
     // TODO
     public function push($mixed) {
         return null;
     }
-    
+
     // TODO
     public function pop($mixed) {
         return null;
     }
-    
+
     // TODO
     public function sort($mixed) {
         return null;
     }
-    
+
     public function getCollectionSize()
     {
         return self::$collectionSize;
     }
-    
+
     public function getCollection()
     {
-        return $this->aCollection;
+        return self::$aCollection;
     }
 
     protected function clearCollection() {
         $this->aCollection = array();
         $this->collectionIndex = 0;
     }
-    
+
     public function getNext()
     {
         $item = null;
