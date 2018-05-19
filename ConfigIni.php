@@ -76,7 +76,7 @@ class ConfigIni
             if ($analize) {
                 $oConfig = new SmartObject($config);
             } else {
-            $oConfig = new Object();
+            $oConfig = new BasicObject();
             }
 
             foreach ($config as $attrib => $value) {

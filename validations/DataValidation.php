@@ -1,9 +1,9 @@
 <?php
 
-namespace levitarmouse\common_tools\validations;
+namespace levitarmouse\core\validations;
 
-use levitarmouse\common_tools\validations\DataValidationInput as DVI;
-use levitarmouse\common_tools\validations\DataValidationOutput as DVO;
+use levitarmouse\core\validations\DataValidationInput as DVI;
+use levitarmouse\core\validations\DataValidationOutput as DVO;
 
 /**
  * Description of RequestValidation
@@ -16,7 +16,7 @@ class DataValidation {
      * validate
      *
      * @param DVI $required
-     * @param \levitarmouse\core\Object $request
+     * @param \levitarmouse\core\BasicObject $request
      * @return DVO
      */
     public static function validate(DVI $required, $request) {
@@ -36,7 +36,7 @@ class DataValidation {
 
                 $possError = new \stdClass();
                 $possError->attribName = $expName;
-                
+
                 if (!$isset) {
                     $possError->errorCode  = DVO::NotSetted;
                     $output->add($possError);
@@ -57,15 +57,15 @@ class DataValidation {
                     }
 
                     $currLenght = ($currType == 'STRING' || $numberAsString) ? strlen($currValue) : 0;
-                    
+
                     $currType = ($numberAsString) ? 'STRING' : $currType;
 
                     if ($currType != $expType) {
                         if (!$numberAsString) {
                             if (empty($currValue)) {
-                                $possError->errorCode = DVO::EmptyValue;                                
+                                $possError->errorCode = DVO::EmptyValue;
                             } else {
-                                $possError->errorCode = DVO::WrongType;                                
+                                $possError->errorCode = DVO::WrongType;
                             }
                             $output->add($possError);
                         }

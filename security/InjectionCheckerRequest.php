@@ -1,6 +1,6 @@
 <?php
 
-namespace levitarmouse\common_tools\security;
+namespace levitarmouse\core\security;
 
 class InjectionCheckerRequest {
 

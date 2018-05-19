@@ -1,6 +1,6 @@
 <?php
 
-namespace levitarmouse\common_tools\security;
+namespace levitarmouse\core\security;
 
 include_once 'InjectionTestResult.php';
 
@@ -501,9 +501,9 @@ class InjectionChecker
         $newJson = $toProcess;
         $size = count($toProcess);
 
-        
+
             if (is_array($toProcess) || is_object($toProcess)) {
-                
+
             foreach ($toProcess as $key => $value) {
 
                 $os = self::SeparatorOfOmmitions;

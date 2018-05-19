@@ -1,6 +1,6 @@
 <?php
 
-namespace levitarmouse\common_tools\logs;
+namespace levitarmouse\core\logs;
 
 include_once './Log.php';
 
@@ -15,13 +15,13 @@ class Logger {
     protected static $ready = false;
 
     protected static function init() {
-        
+
         if (defined('LOGS_PATH')) {
             $path = LOGS_PATH;
         } else {
             $path = '/tmp/levitarmouseLogs.log';
         }
-        
+
         self::$instance = new Log($path);
         self::$ready = true;
     }

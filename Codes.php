@@ -15,6 +15,7 @@ class Codes
     const LET_GO = 'LET_GO';
     const DOESNT_EXIST = 'DOESNT_EXIST';
     const COMPONENT_ALREADY_EXIST = 'COMPONENT_ALREADY_EXIST';
+    const MASTER_COMPONENT_ALREADY_EXIST = 'MASTER_COMPONENT_ALREADY_EXIST';
     const EXPIRED_LG_SESSION = 'EXPIRED_LG_SESSION';
     const EXPIRED_SESSION = 'EXPIRED_SESSION';
     const INACTIVE_ERROR = 'INACTIVE_ERROR';
@@ -89,9 +90,10 @@ class Codes
             self::MAIL_ALREADY_IN_USE          => array('id' => 9, 'description' => 'EMail ya utilizado por otro usuario'),
             self::PASSWORD_FORMAT_ERROR        => array('id' => 10, 'description' => 'La Constraseña no tiene un formato válido'),
             self::PASSWORD_VERIFICATION_ERROR  => array('id' => 11, 'description' => 'La contraseña y su confirmación no coinciden'),
-            self::COMPONENT_ALREADY_EXIST      => array('id' => 100, 'description' => 'el elemento que desea crear ya existe'),
-            self::EXPIRED_SESSION              => array('id' => 150, 'description' => 'Expired Session'),
-            self::EXPIRED_LG_SESSION           => array('id' => 151, 'description' => 'Expired Session'),
+            self::COMPONENT_ALREADY_EXIST      => array('id' => 100, 'description' => 'El elemento que desea crear ya existe'),
+            self::MASTER_COMPONENT_ALREADY_EXIST => array('id' => 101, 'description' => 'El elemento que desea crear ya es parte del Sistema'),
+            self::EXPIRED_SESSION              => array('id' => 440, 'description' => 'Expired Session'),
+            self::EXPIRED_LG_SESSION           => array('id' => 441, 'description' => 'Long Expired Session'),
             self::ALREADY_EXIST                => array('id' => 152, 'description' => 'El elemento que desea crear ya existe'),
             self::DOESNT_EXIST                 => array('id' => 153, 'description' => 'El elemento que desea modificar no existe'),
             self::VALID_CSRF_TOKEN_IS_REQUIRED => array('id' => 505, 'description' => 'CSRF detected'),

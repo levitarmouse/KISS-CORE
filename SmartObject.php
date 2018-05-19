@@ -35,7 +35,7 @@ class SmartObject
 
     public function analize($src = null) {
 
-        $obj = new Object();
+        $obj = new BasicObject();
 
         if (is_string($src)) {
             

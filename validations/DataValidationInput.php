@@ -1,6 +1,6 @@
 <?php
 
-namespace levitarmouse\common_tools\validations;
+namespace levitarmouse\core\validations;
 
 /**
  * Description of ValidateRequestInput
@@ -8,7 +8,7 @@ namespace levitarmouse\common_tools\validations;
  * @author gabriel
  */
 class DataValidationInput {
-    
+
     CONST TypeNull    = 'NULL';
     CONST TypeInteger = 'Integer';
     CONST TypeFloat   = 'Double';
@@ -17,7 +17,7 @@ class DataValidationInput {
     CONST TypeArray   = 'Array';
     CONST TypeObject  = 'Object';
     CONST Undefined   = 'Undefined';
-    
-     use levitarmouse\core\LmIterator;
+
+     use \levitarmouse\core\LmIterator;
 
 }
