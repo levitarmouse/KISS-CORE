@@ -16,8 +16,9 @@ class DataValidation {
      * validate
      *
      * @param DVI $required
-     * @param \levitarmouse\core\BasicObject $request
-     * @return DVO
+     * @param \levitarmouse\core\StdObject $request
+     *
+     * @return \levitarmouse\core\validations\DataValidationOutput
      */
     public static function validate(DVI $required, $request) {
 

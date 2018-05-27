@@ -5,7 +5,7 @@ namespace levitarmouse\core;
 use Exception;
 use stdClass;
 
-class BasicObject
+class StdObject
 {
     protected $aData;
 
