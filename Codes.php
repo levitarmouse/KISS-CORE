@@ -13,6 +13,7 @@ class Codes
 {
     const ALREADY_EXIST = 'ALREADY_EXIST';
     const LET_GO = 'LET_GO';
+    const KEEP_ALIVE = 'KEEP_ALIVE';
     const DOESNT_EXIST = 'DOESNT_EXIST';
     const COMPONENT_ALREADY_EXIST = 'COMPONENT_ALREADY_EXIST';
     const MASTER_COMPONENT_ALREADY_EXIST = 'MASTER_COMPONENT_ALREADY_EXIST';
@@ -46,6 +47,7 @@ class Codes
     const DB_INVALID_DRIVER = 'DB_INVALID_DRIVER';
     const DB_ACCESS_DENIED = 'DB_ACCESS_DENIED';
     const DB_ACCESS_FAILED = 'DB_ACCESS_FAILED';
+    const PASSWORD_EMPTY = 'PASSWORD_EMPTY';
     const PASSWORD_FORMAT_ERROR = 'PASSWORD_FORMAT_ERROR';
     const PASSWORD_VERIFICATION_ERROR = 'PASSWORD_VERIFICATION_ERROR';
     const VALID_CSRF_TOKEN_IS_REQUIRED = 'VALID_CSRF_TOKEN_IS_REQUIRED';
@@ -74,6 +76,7 @@ class Codes
             self::INTERNAL_ERROR               => array('id' => -1, 'description' => 'Se produjo un error desconocido'),
             self::DEPLOYMENT_EXCEPTION         => array('id' => -1, 'description' => 'There is no method in the registered controller that receive the HTTP method used'),
             self::LET_GO                       => array('id' => 0, 'description' => 'ALL_RIGHT'),
+            self::KEEP_ALIVE                   => array('id' => 0, 'description' => 'ALL_RIGHT'),
             self::NO_ERRORS                    => array('id' => 0, 'description' => 'SUCCESS'),
             self::CHECKING_IN                  => array('id' => 0, 'description' => 'CHECKING_IN'),
             self::NOTHING_TO_DO                => array('id' => 0, 'description' => 'NOTHING_TO_DO'),
@@ -88,6 +91,7 @@ class Codes
             self::USER_DOES_NOT_EXIST          => array('id' => 401, 'description' => 'User does not exist'),
             self::USER_ALREADY_EXIST           => array('id' => 8, 'description' => 'User already exist'),
             self::MAIL_ALREADY_IN_USE          => array('id' => 9, 'description' => 'EMail ya utilizado por otro usuario'),
+            self::PASSWORD_EMPTY               => array('id' => 10, 'description' => 'El sistema no permite operar sin contraseña!'),
             self::PASSWORD_FORMAT_ERROR        => array('id' => 10, 'description' => 'La Constraseña no tiene un formato válido'),
             self::PASSWORD_VERIFICATION_ERROR  => array('id' => 11, 'description' => 'La contraseña y su confirmación no coinciden'),
             self::COMPONENT_ALREADY_EXIST      => array('id' => 100, 'description' => 'El elemento que desea crear ya existe'),
